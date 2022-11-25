@@ -61,11 +61,50 @@
 # The constructor (__init__ ) should have two parameters the "suit" and the "value" and the suit of the card.
 # The class should store both as attributes.
 
+class Card:
+    
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+    
+    def show(self) :
+        print ("{} of {}".format(self.value , self.suit))
+
+#card = Card("Diamonds", 6)
+#card.show()
 
 # 2.2) Create a Deck class called "Deck".
-# The constructor will create an English Deck (suits: Hearts, Diamonds, Clubs, Spades and values: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K). It will create a list of cards that contain each of the existing cards in an English Deck.
+# The constructor will create an English Deck (suits: Hearts, Diamonds, Clubs, Spades 
+# and values: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K). 
+# It will create a list of cards that contain each of the existing cards in an English Deck.
 # Create a method called "shuffle" that shuffles the cards randomly. 
-# Create a method called "draw" that will draw a single card and print the suit and value. When a card is drawn, the card should be removed from the deck.
+# Create a method called "draw" that will draw a single card and print the suit and value. 
+# When a card is drawn, the card should be removed from the deck.
+
+import random
+
+class Deck:
+    
+    def __init__(self):
+        self.cards = []
+        self.build()
+    
+    def build(self):
+        for s in ["Hearts", "Diamonds", "Clubs", "Spades"]:
+            for v in ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]:
+                self.cards.append(Card(s, v))
+    
+    def show(self):
+        for c in self.cards:
+            c.show()
+
+    def shuffle(self):
+       for i in range(len(self.cards)-1,0,-1):
+           r = random.randint(0 , i)
+           self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
+
+    def draw(self):
+        return self.cards.pop()
 
 
 
