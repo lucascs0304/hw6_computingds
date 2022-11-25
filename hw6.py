@@ -48,6 +48,28 @@
 #    following symptoms:
 #    ['fever', 'cough', 'anosmia']
 
+##Ex 1
+#1.1
+class Patient:
+
+    def __init__(self,name : str,symptoms:list):
+        self.name = name
+        self.symptoms = symptoms
+ #1.2   
+    def add_test(self,test_name,results):
+        self.test_name = test_name
+        self.results = results
+        #Store
+#1.3
+    def has_covid(self):
+        covid_symptoms = ['fever', 'cough', 'anosmia']
+        if self.test_name == 'covid' and self.results == 'positive' :
+            covid_probability = 0.99
+        elif self.test_name == 'covid' and self.results == 'false':
+            covid_probability = 0.01
+        else:
+             covid_probability = 0.5 + 0.1*len(list(set(self.symptoms).intersection(covid_symptoms)))
+        return covid_probability
 
 ######################
 
