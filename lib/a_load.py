@@ -33,10 +33,8 @@ class loader():
             df: dataframe to split data for
             
         Returns:
-            X_train: splitted X axis for training models
-            y_train: splitted y axis for training models
-            X_test: splitted X axis for testing models
-            y_test: splitted y axis for testing models
+            train: splitted dataframe for training models
+            test: splitted dataframe for training models
             
         '''
         
