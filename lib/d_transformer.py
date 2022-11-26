@@ -27,6 +27,7 @@ class log(transformer):
             Transformed dataframe
         '''
         self.df.loc[:,self.col] = self.df.loc[:,self.col].apply(lambda x: np.log10(x))
+        return self.df
     
 class levels(transformer):
 
@@ -41,4 +42,5 @@ class levels(transformer):
         Returns:
             Transformed dataframe
         '''
-        self.df.loc[:,self.col] = self.df.loc[:,self.col].apply(lambda x: 10**x)
+        self.df.loc[:,self.col] = self.df.loc[:,self.col].apply(lambda x: np.exp(x))
+        return self.df
