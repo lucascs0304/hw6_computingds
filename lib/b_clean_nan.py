@@ -3,10 +3,8 @@ import pandas
 
 class nan_dropper():
     
-    def __init__(self, df, col):
+    def __init__(self, df):
         self.df = df
-        self.col = col
-        self.drop_nan(self.col)
         
     def drop_nan(self, col):
         
@@ -22,3 +20,4 @@ class nan_dropper():
         '''
         
         self.cleaned_df = self.df.dropna(axis=0, subset=col, how='any')
+        return self.cleaned_df
