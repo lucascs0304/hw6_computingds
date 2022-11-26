@@ -14,7 +14,7 @@ class loader():
         Read database.
         
         Parameters: 
-            path: path to data
+            file: path to data
             
         Returns:
             df: database in pandas format
@@ -31,7 +31,7 @@ class loader():
         Split data between train and test using sklearn.model_selection.train_test_split.
         
         Parameters: 
-            df: dataframe to split data for
+            df: dataframe to split data for analysis 
             
         Returns:
             train: splitted dataframe for training models
