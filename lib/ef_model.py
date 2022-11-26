@@ -1,23 +1,13 @@
-import sklearn
-from sklearn.ensemble import RandomForestClassifier
-
-rf = RandomForestClassifier()
-hyperparams = {
-    'max_depth': 8,
-    'n_estimators': 25,
-    'min_samples_split': 5,
-    'random_state': 2
-}
 
 class model():
 
-    def __init__(self, train, modelsel, x_cols, target, hyperparams = None) -> None:
+    def __init__(self, train, modelsel, x_cols, target) -> None:
         self._x_cols = x_cols
         self._target = target
-        self._hyperparams = hyperparams
-        if hyperparams is None:
-            hyperparams = {}
-        self.model = modelsel(**self.hyperparams)
+#        self._hyperparams = hyperparams
+#         if hyperparams is None:
+#            hyperparams = {}
+        self.model = modelsel
         self.train(train)
 
     def train(self, train):
@@ -41,3 +31,5 @@ class model():
         '''
         X_test = test[self._x_cols]
         return self.model_fit.predict_proba(X_test[self._x_cols])
+
+

@@ -4,10 +4,8 @@ import numpy
 
 class nan_filler:
     
-        def __init__(self, df, col):
+        def __init__(self, df):
             self.df = df
-            self.col = col
-            self.fill_means(self.col)
         
         def fill_means(self, col):
             
@@ -23,3 +21,4 @@ class nan_filler:
             '''
             
             self.df.loc[:,col].fillna(self.df.mean().iloc[0], inplace=True)
+            return self.df

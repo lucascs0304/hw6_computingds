@@ -5,9 +5,9 @@ import pandas as pd
 
 class transformer(ABC):
 
-    def __init__(self,df,col:list) -> None:
-        self.df=df
-        self.col=col
+    def __init__(self, df, col:list) -> None:
+        self.df = df
+        self.col = col
 
     @abstractmethod
     def apply_transform(self):
@@ -26,13 +26,13 @@ class log(transformer):
         Returns:
             Transformed dataframe
         '''
-        self.df.loc[:,self.col]=self.df.loc[:,self.col].apply(lambda x: np.log(x))
+        self.df.loc[:,self.col] = self.df.loc[:,self.col].apply(lambda x: np.log10(x))
     
-class exp(transformer):
+class levels(transformer):
 
     def apply_transform(self):
         '''
-        Apply exponential to some of the columns in the dataset.
+        Apply a transformation to return to original logged values.
         
         Parameters:
             df: dataframe to be treated
@@ -41,5 +41,4 @@ class exp(transformer):
         Returns:
             Transformed dataframe
         '''
-        self.df.loc[:,self.col]=self.df.loc[:,self.col].apply(lambda x: np.exp(x))
-
+        self.df.loc[:,self.col] = self.df.loc[:,self.col].apply(lambda x: 10**x)

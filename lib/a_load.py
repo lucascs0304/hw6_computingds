@@ -21,6 +21,7 @@ class loader():
         '''
         
         self.df = pd.read_csv(self.file, index_col=0)
+        return self.df
       
 
     def split(self):
